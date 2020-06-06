@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.gromadzki.manager.Entity.Client;
+import pl.gromadzki.manager.Entity.POJO.RoomType;
 import pl.gromadzki.manager.Repository.ClientRepository;
 
 @Controller
@@ -34,7 +35,7 @@ public class ClientController {
     @GetMapping("/edit/{id}")
     public String editClient(@ModelAttribute("id") Long id, Model model){
         Client client = clientRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid client Id:" + id));
         model.addAttribute("updatingClient", client);
         return "editClient";
     }
@@ -48,7 +49,7 @@ public class ClientController {
     @GetMapping("/delete/{id}")
     public String deleteClient(@ModelAttribute("id") Long id){
         Client client = clientRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
+                .orElseThrow(() -> new IllegalArgumentException("Invalid client Id:" + id));
         clientRepository.delete(client);
         return "redirect:/client";
     }

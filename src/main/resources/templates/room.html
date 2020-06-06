@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Pokoje</title>
     <meta charset="UTF-8">
@@ -22,14 +22,17 @@
         </div>
     </nav>
     <div style="text-align: center" class="table-responsive">
-        <form class="form-inline centered">
+        <form class="form-inline centered" th:action="@{/room}" th:object="${room}" method="post">
             <div class="form-group">
-                <input class="form-control" placeholder="Numer pokoju">
+                <input class="form-control" placeholder="Numer pokoju" th:field="*{roomNumber}">
             </div>
             <div class="form-group">
-                <input class="form-control" placeholder="Typ pokoju">
+                <select class="form-control" th:field="*{roomType}">
+                    <option th:each="roomType: ${roomType}"
+                            th:value="${roomType}" th:text="${roomType}"></option>
+                </select>
             </div>
-            <button type="button" class="btn btn-primary">dodaj</button>
+            <button type="submit" class="btn btn-primary">dodaj</button>
         </form>
 
 
@@ -42,17 +45,23 @@
                 <th></th>
             </tr>
             </thead>
-            <tbody>
+            <tbody th:each="room: ${rooms}">
             <tr>
-                <td>TRUE</td>
-                <td>1</td>
-                <td>Anna</td>
+                <td><label>
+                    <input type="checkbox" disabled="disabled" th:checked="${room.occupied}">
+                </label></td>
+                <td th:text="${room.roomNumber}">NAME</td>
+                <td th:text="${room.roomType}">SURNAME</td>
                 <td>
                     <div>
-                        <button type="button" class="btn btn-warning">edytuj</button>
-                        <button type="button" class="btn btn-danger">usun</button>
+                        <a th:href="@{room/edit/{id}(id=${room.id})}"
+                           type="button" class="btn btn-warning">edytuj</a>
+
+                        <a th:href="@{room/delete/{id}(id=${room.id})}"
+                           type="button" class="btn btn-danger">usun</a>
                     </div>
                 </td>
+
             </tr>
             </tbody>
         </table>
