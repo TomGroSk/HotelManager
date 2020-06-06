@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Klienci</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand active" href="/">Hotel Manager</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/client">Klienci</a></li>
+                <li><a href="/room">Pokoje</a></li>
+                <li><a href="/reservation">Rezerwacje</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div style="text-align: center" class="table-responsive">
+        <form class="form-inline centered" th:action="@{/client}" th:object="${client}" method="post">
+            <div class="form-group">
+                <input class="form-control" th:field="*{name}" placeholder="Imie">
+            </div>
+            <div class="form-group">
+                <input class="form-control" th:field="*{surname}" placeholder="Nazwisko">
+            </div>
+            <div class="form-group">
+                <input type="tel" class="form-control" th:field="*{phoneNumber}" placeholder="Numer telefonu">
+            </div>
+            <div class="form-group">
+                <input class="form-control" th:field="*{country}" placeholder="Kraj">
+            </div>
+            <button type="submit" class="btn btn-primary">dodaj</button>
+        </form>
+
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Imie</th>
+                <th>Nazwisko</th>
+                <th>Numer telefonu</th>
+                <th>Kraj</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody th:each="client: ${clients}">
+            <tr>
+                <td th:text="${client.id}">ID</td>
+                <td th:text="${client.name}">NAME</td>
+                <td th:text="${client.surname}">SURNAME</td>
+                <td th:text="${client.phoneNumber}">123 123 123</td>
+                <td th:text="${client.country}">COUNTRY</td>
+                <td>
+                    <div>
+                        <a th:href="@{client/edit/{id}(id=${client.id})}"
+                                type="button"  class="btn btn-warning">edytuj</a>
+
+                        <a th:href="@{client/delete/{id}(id=${client.id})}"
+                                type="button" class="btn btn-danger">usun</a>
+                    </div>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
