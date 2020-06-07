@@ -1,4 +1,4 @@
-package pl.gromadzki.manager.Entity.POJO;
+package pl.gr.manager.Entity.POJO;
 
 public enum RoomType {
     JEDNOOSOBOWY,

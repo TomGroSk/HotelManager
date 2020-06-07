@@ -1,6 +1,6 @@
-package pl.gromadzki.manager.Entity;
+package pl.gr.manager.Entity;
 
-import pl.gromadzki.manager.Entity.POJO.RoomType;
+import pl.gr.manager.Entity.POJO.RoomType;
 
 import javax.persistence.*;
 

@@ -1,6 +1,4 @@
-package pl.gromadzki.manager.Entity;
-
-import pl.gromadzki.manager.Entity.POJO.RoomType;
+package pl.gr.manager.Entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -19,7 +17,7 @@ public class Reservation {
     @JoinColumn(name = "ROOM_ID")
     private Room room;
     @Column(name = "RESERVATION_TIME")
-    private LocalDate reservationTime;
+    private LocalDate reservationStartDate;
 
     public Reservation() {
     }
@@ -48,11 +46,11 @@ public class Reservation {
         this.room = room;
     }
 
-    public LocalDate getReservationTime() {
-        return reservationTime;
+    public LocalDate getReservationStartDate() {
+        return reservationStartDate;
     }
 
-    public void setReservationTime(LocalDate reservationTime) {
-        this.reservationTime = reservationTime;
+    public void setReservationStartDate(LocalDate reservationTime) {
+        this.reservationStartDate = reservationTime;
     }
 }

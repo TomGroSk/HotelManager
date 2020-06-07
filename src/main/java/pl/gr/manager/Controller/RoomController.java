@@ -1,4 +1,4 @@
-package pl.gromadzki.manager.Controller;
+package pl.gr.manager.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -6,10 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.gromadzki.manager.Entity.Client;
-import pl.gromadzki.manager.Entity.POJO.RoomType;
-import pl.gromadzki.manager.Entity.Room;
-import pl.gromadzki.manager.Repository.RoomRepository;
+import pl.gr.manager.Entity.POJO.RoomType;
+import pl.gr.manager.Entity.Room;
+import pl.gr.manager.Repository.RoomRepository;
 
 @Controller
 @RequestMapping("/room")
@@ -24,7 +23,7 @@ public class RoomController {
     @GetMapping
     public String getRoomIndex(Model model){
         model.addAttribute("room", new Room());
-        model.addAttribute("roomType", RoomType.values());
+        model.addAttribute("roomTypes", RoomType.values());
         model.addAttribute("rooms", roomRepository.findAll());
         return "room";
     }
@@ -39,7 +38,7 @@ public class RoomController {
         Room room = roomRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid room Id:" + id));
         model.addAttribute("updatingRoom", room);
-        model.addAttribute("roomType", RoomType.values());
+        model.addAttribute("roomTypes", RoomType.values());
         return "editRoom";
     }
 

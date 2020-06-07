@@ -1,4 +1,4 @@
-package pl.gromadzki.manager.Entity;
+package pl.gr.manager.Entity;
 
 import javax.persistence.*;
 

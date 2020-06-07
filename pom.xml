@@ -8,7 +8,7 @@
         <version>2.3.0.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>pl.gromadzki</groupId>
+    <groupId>pl.gr</groupId>
     <artifactId>manager</artifactId>
     <version>0.0.1</version>
     <name>manager</name>

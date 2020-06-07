@@ -14,12 +14,13 @@
         <form action="#" th:action="@{/room/edit/{id}(id=${updatingRoom.id})}" th:object="${updatingRoom}" method="post">
             <div class="col">
                 <div class="form-group col-md-8">
-                    <label class="col-form-label">Imie</label>
+                    <label class="col-form-label">Numer pokoju</label>
                     <input type="text" th:field="*{roomNumber}" class="form-control">
                 </div>
                 <div class="form-group col-md-8">
+                    <label class="col-form-label">Rodzaj pokoju</label>
                     <select class="form-control" th:field="*{roomType}">
-                        <option th:each="roomType: ${roomType}"
+                        <option th:each="roomType: ${roomTypes}"
                                 th:value="${roomType}" th:text="${roomType}"></option>
                     </select>
                 </div>

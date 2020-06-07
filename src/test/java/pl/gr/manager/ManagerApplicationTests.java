@@ -1,4 +1,4 @@
-package pl.gromadzki.manager;
+package pl.gr.manager;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

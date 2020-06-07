@@ -1,4 +1,4 @@
-package pl.gromadzki.manager.Service;
+package pl.gr.manager.Service;
 
 import org.springframework.stereotype.Service;
 

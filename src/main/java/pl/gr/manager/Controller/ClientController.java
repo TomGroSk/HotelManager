@@ -1,4 +1,4 @@
-package pl.gromadzki.manager.Controller;
+package pl.gr.manager.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -6,9 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.gromadzki.manager.Entity.Client;
-import pl.gromadzki.manager.Entity.POJO.RoomType;
-import pl.gromadzki.manager.Repository.ClientRepository;
+import pl.gr.manager.Entity.Client;
+import pl.gr.manager.Repository.ClientRepository;
 
 @Controller
 @RequestMapping("/client")
