@@ -13,7 +13,6 @@ import pl.gr.manager.Repository.RoomRepository;
 @Controller
 @RequestMapping("/room")
 public class RoomController {
-
     final RoomRepository roomRepository;
 
     public RoomController(RoomRepository roomRepository) {
