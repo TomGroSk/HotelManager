@@ -10,12 +10,15 @@ public class Reservation {
     @GeneratedValue
     @Column(name = "RESERVATION_ID")
     private Long id;
+
     @OneToOne
     @JoinColumn(name = "CLIENT_ID")
     private Client client;
+
     @OneToOne
     @JoinColumn(name = "ROOM_ID")
     private Room room;
+
     @Column(name = "RESERVATION_TIME")
     private LocalDate reservationStartDate;
 

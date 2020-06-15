@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.gr.manager.Entity.POJO.ReservationModel;
-import pl.gr.manager.Entity.POJO.RoomType;
 import pl.gr.manager.Entity.Reservation;
 import pl.gr.manager.Entity.Room;
 import pl.gr.manager.Repository.ClientRepository;

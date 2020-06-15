@@ -1,7 +1,6 @@
 package pl.gr.manager.Entity.POJO;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import pl.gr.manager.Entity.Room;
 
 import java.time.LocalDate;
 
